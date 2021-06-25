@@ -1,0 +1,11 @@
+@import '../themes/typography-variables.scss';
+
+/* set base font - all other font specifications should use rem units */
+body {
+    font-family: $font-family-avenir;
+    font-size: $font-size-normal;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}

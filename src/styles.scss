@@ -1,0 +1,17 @@
+/* Font Resources */
+@import '~@lst/font-avenir/font-avenir.css';
+@import '~@lst/font-cabin/font-cabin.css';
+
+/* K-12 Learning Resources */
+@import '~@lst/k12_universal_icons/style.css';
+
+/* Cel Components Resources */
+@import '~@lst/cel-components/dist/cel-components/cel-components.css';
+
+/* Base Styles - applied regardless of theme */
+@import 'styles/base/typography';
+
+@import 'styles/themes/color-variables';
+@import 'styles/themes/typography-variables';
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';

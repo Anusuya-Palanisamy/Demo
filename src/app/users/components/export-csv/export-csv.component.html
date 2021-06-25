@@ -1,0 +1,15 @@
+<div class="export-container">
+    <button [disabled]="showExportLoader" mat-button class="export-btn" (click)="exportCSV()">{{selectedOption}}
+        <cel-loading-spinner *ngIf="showExportLoader" class="spinner"></cel-loading-spinner>
+    </button>
+    <mat-form-field class="export-form-field">
+        <mat-select [disabled]="disalbeSelectButton || showExportLoader" [(value)]="selectedOption" disableOptionCentering
+            (selectionChange)="updateExportSelection($event.value)" class="select-export">
+            <mat-option class="option-export" *ngFor="let option of exportOptions; let i =index" [value]="option">
+                {{option}}
+                <mat-checkbox class="export-check" [checked]="option === selectedOption">
+                </mat-checkbox>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

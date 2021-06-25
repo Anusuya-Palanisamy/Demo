@@ -1,0 +1,64 @@
+@import 'themes/color-variables.scss';
+@import 'themes/typography-variables.scss';
+@import "font.scss";
+
+.row {
+    width: 100% !important;
+}
+
+.mat-elevation-z8 {
+    box-shadow: none;
+}
+
+.mat-cell {
+    font-size: $font-size-regular;
+    word-break: break-all;
+    border: none;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: $grayLightest;
+}
+
+.mat-header-cell {
+    text-decoration: none;
+    border: none;
+    @include table-font($font-weight-heavy, $font-size-regular);
+}
+
+.mat-row {
+    word-wrap: break-word !important;
+    display: flex;
+    border-width: 0;
+    align-items: center;
+    box-sizing: border-box;
+    @include table-font($font-weight-normal, $font-size-regular);
+}
+
+.header-separator {
+    margin: 0 15px;
+    font-weight: $font-weight-heavy;
+    position: relative;
+    bottom: 2px;
+}
+
+.mat-header-row {
+    border: none;
+}
+
+.table-header {
+    color: $black;
+    font-size: $font-size-normal;
+}
+
+.table-head {
+   display: flex;
+   justify-content: space-between;
+   margin: 1% 1% 0 1%;
+   align-items: flex-end;
+}
+
+.is-suspended {
+    text-decoration-line: line-through;
+    text-decoration-thickness: 1.2px;
+}

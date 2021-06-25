@@ -1,0 +1,67 @@
+<div class="user-list">
+    <div *ngIf="!isZeroResults && !isError && templateObject.licenseConsumptionInfo" class="user-info">{{ templateObject.licenseConsumptionInfo | translate }}</div>
+
+    <ng-container *ngIf="!loading && isZeroResults && !isError">
+        <div class="zero-state">{{ templateObject.zeroStateError | translate }}</div>
+    </ng-container>
+
+    <div *ngIf="loading" class="loader-container">
+        <cel-loading-spinner class="spinner"></cel-loading-spinner>
+    </div>
+
+    <div class="user-search" *ngIf="isError || !isZeroResults">
+        <div class="d-flex">
+            <auto-chip-select data-e2e-id="auto-chip-select-user-search" class="search" [placeholder]="placeholder"
+                (selectionRemoved)="removeUserIds($event)" [dataSource]="usersSearchDataSource"
+                (selectionChanged)="addUserIds($event)" (clear)="clearUsers()">
+            </auto-chip-select>
+            <div><button mat-button class="search-btn" (click)="searchUser()">{{ 'searchButton' | translate  }}</button></div>
+        </div>
+        <div class="export-users" *ngIf="!isError && !isZeroResults">
+            <export-csv data-e2e-id="export-users" [showExportLoader]="showExportLoader" [exportOptions]="exportOptions"
+                [selectedOption]="selectedOption" [disableSelect]="disableSelect" (exportEvent)="exportUsers($event)">
+            </export-csv>
+        </div>
+    </div>
+
+    <ng-container *ngIf="isError">
+        <div class="oops-error">{{ templateObject.oopsError | translate }}</div>
+        <div class="server-error">{{ templateObject.serverError | translate }}</div>
+    </ng-container>
+
+    <div [ngClass]="{'hide-paginator': isZeroResults || isError || isZeroSearchResult}">
+        <mat-paginator #paginator [hidePageSize]="true" [length]="totalUsers" [pageIndex]="0" [pageSize]="pageSize"
+            [showFirstLastButtons]="true"></mat-paginator>
+    </div>
+
+    <ng-container *ngIf="!isZeroResults && isZeroSearchResult && !loading && !isError">
+        <div class="zero-search-result">{{ templateObject.zeroUsersForSearch | translate }}</div>
+    </ng-container>
+
+    <div *ngIf="!loading && !isZeroResults && !isZeroSearchResult && !isError">
+        <mat-table [dataSource]="dataSource" class="user-table" data-e2e-id="mat-table-user-list"
+            [ngClass]="{'student-table':userType === 's'}">
+
+            <ng-container matColumnDef="userName">
+                <th mat-header-cell data-e2e-id="mat-header-cell-user-name" *matHeaderCellDef>{{ templateObject.userNameColumn | translate }}</th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'is-suspended': element.userStatus === userStatus.suspended}">
+                    {{element.userName}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="organization">
+                <th mat-header-cell data-e2e-id="mat-header-cell-organization" *matHeaderCellDef>{{ templateObject.organizationColumn | translate }}</th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'is-suspended': element.userStatus === userStatus.suspended}">{{element.organizationName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="className">
+                <th mat-header-cell data-e2e-id="mat-header-cell-class-Name" *matHeaderCellDef>{{ templateObject.classNameColumn | translate }}</th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'is-suspended': element.userStatus === userStatus.suspended}">{{element.className}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnList; sticky:true"></tr>
+            <tr mat-row *matRowDef="let row; columns:columnList;"></tr>
+
+        </mat-table>
+    <div>
+</div>

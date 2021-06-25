@@ -1,0 +1,32 @@
+<div class="search-container">
+    <mat-form-field appearance="outline" class="field-input">
+        <mat-icon *ngIf="(loading$ | async) === false && selectedValues.isEmpty()" class="icon-search"  [fontSet]="'k12'"
+        [fontIcon]="'icon-search'" matSuffix>
+    </mat-icon>
+    <mat-icon *ngIf="(loading$ | async) === false && !selectedValues.isEmpty()" class="icon-clear" (click)="doClear()" [fontSet]="'k12'"
+        [fontIcon]="'icon-exit'" matSuffix>
+    </mat-icon>
+        <mat-chip-list #chipList aria-label="">
+            <mat-chip *ngFor="let selectedValue of selectedValues.selected" [selectable]="'false'"
+                (removed)="deselect(selectedValue)">
+                {{ selectedValue.suggestionViewValue }}
+                <mat-icon matChipRemove class="remove-chips" aria-hidden="false" [fontSet]="'k12'"
+                    [fontIcon]="'icon-exit'">
+                </mat-icon>
+            </mat-chip>
+            <input matInput type="text" [placeholder]="placeholder" data-e2e-id="input-user-search" #autoCompleteInput [formControl]="inputControl"
+                [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="chipInputEnd()" [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+        </mat-chip-list>
+        <mat-progress-spinner *ngIf="loading$ | async" class="inline-spinner" diameter="14" mode="indeterminate">
+        </mat-progress-spinner>
+    </mat-form-field>
+    <mat-autocomplete data-e2e-id="mat-autocomplete-user-search" #auto="matAutocomplete"
+        (optionSelected)="optionSelected($event)" (optionsScroll)="onScroll()">
+        <ng-template ngFor let-suggestion [ngForOf]="suggestions | async" [ngForTemplate]="optionTemplate">
+            <mat-option [value]="suggestion">
+                {{ suggestion.suggestionViewValue }}
+            </mat-option>
+        </ng-template>
+    </mat-autocomplete>
+</div>

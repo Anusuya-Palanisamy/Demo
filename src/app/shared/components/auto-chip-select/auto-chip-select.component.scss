@@ -1,0 +1,110 @@
+@import "../../../../styles/mat_table.scss";
+@import "../../../../styles/themes/color-variables.scss";
+@import "../../../../styles/themes/typography-variables.scss";
+
+:host {
+    width: 96%;
+}
+
+.search-container {
+    .mat-form-field-appearance-outline:not(.mat-form-field-disabled)
+        .mat-form-field-flex:hover
+        .mat-form-field-outline {
+        border: 0.2px solid $gray;
+        border-radius: 5px;
+
+        .mat-form-field-outline-start,
+        .mat-form-field-outline-gap,
+        .mat-form-field-outline-end {
+            border: none;
+        }
+    }
+
+    .mat-form-field-appearance-outline.mat-focused
+        .mat-form-field-outline-thick {
+        color: $gray !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: $gray;
+    }
+
+    .mat-form-field-flex > .mat-form-field-infix {
+        padding: 0 0 0.6em 0 !important;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-label {
+        margin-top: -15px;
+    }
+
+    .mat-form-field-suffix .mat-icon {
+        font-size: 100% !important;
+        line-height: 2.25;
+    }
+}
+
+.field-input {
+    width: 100%;
+    font-size: $font-size-regular;
+}
+
+.inline-spinner {
+    position: absolute !important;
+    top: 5%;
+    right: 1%;
+}
+
+label.ng-star-inserted {
+    transform: translateY(-0.59375em) scale(0.75) !important;
+}
+
+.field-input .mat-form-field-flex {
+    font-family: Avenir;
+    height: 100%;
+    min-height: 32px;
+}
+
+.mat-chip-remove {
+    width: 6px !important;
+    font-size: 9px !important;
+    color: $black !important;
+    padding-top: 10px !important;
+    float: right !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    opacity: 2 !important;
+}
+
+.mat-chip {
+    font-weight: bold;
+    background-color: $grayLight;
+}
+
+.mat-standard-chip {
+    min-height: 34px !important;
+    border-radius: 3px !important;
+}
+
+.mat-chip-list-wrapper .mat-standard-chip {
+    margin: 4px 15px 4px 5px !important;
+}
+
+.auto-complete-chip .mat-option {
+    font-size: $font-size-regular !important;
+    height: 32px !important;
+    font-family: avenir !important;
+}
+
+.mat-option:hover:not(.mat-option-disabled) {
+    color: $blue;
+}
+
+.icon-search {
+    float: right;
+    color: $gray;
+}
+
+.icon-clear {
+    cursor: pointer;
+    float: right;
+    color: $gray;
+}

@@ -1,0 +1,118 @@
+@import '../../../../styles/themes/color-variables.scss';
+@import '../../../../styles/themes/typography-variables.scss';
+
+.export-check {
+    float: right;
+}
+
+.export-container .mat-select-arrow {
+    color: $blueDark;
+}
+
+.export-container {
+    display: flex;
+    min-width: 150px;
+    border: 1px solid $blueDark;
+    border-radius: 5px;
+
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+
+    .mat-form-field-infix {
+        border: 0;
+    }
+    
+    .mat-form-field-infix :focus-within {
+        border-top-left-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
+    }
+
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+        color: $gray;
+    } 
+    
+}
+
+.export-btn {
+    border-right: 1px solid $blueDark !important;
+    border-radius: 0 !important;
+    background-color: $white;
+    color: $blueDark;
+    font-size: $font-size-normal;
+    font-family: $font-family-avenir;
+    font-weight: 600;
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    position: absolute !important;
+    z-index: 1;
+    width: 150px !important;
+}
+
+.export-form-field .mat-form-field-label {
+    display: none !important;
+}
+
+.export-form-field {
+    height:36px;
+}
+
+.export-form-field .mat-select-arrow-wrapper {
+    min-width: 24px;
+}
+
+.select-export {
+    font-family: $font-family-avenir !important;
+    font-weight: $font-weight-medium !important;
+    .mat-select-value-text {
+        display: none;
+    }
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $grayDark;
+    font-size: $font-size-normal;
+}
+
+
+.export-check .mat-checkbox-checkmark-path {
+    stroke-width: 4px !important;
+    stroke: $blue !important;
+}
+
+.export-check .mat-checkbox-frame {
+    border: none !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background: none;
+}
+
+.option-export {
+    font-family: $font-family-avenir !important;
+    color: $gray !important;
+    height: 2em !important;
+}
+
+.select-export .mat-select-value-text:hover {
+    text-decoration: underline;
+}
+
+
+.export-form-field .mat-form-field-underline {
+    display: none;
+}
+
+.export-form-field {
+    :focus-within {
+        background-color: $grayLightest;
+        border-radius: 5px;
+    }
+}
+
+.export-container .spinner {
+    --fill-color: var(--blue);
+    --height: 15px;
+    --width: 15px;
+    display: inline-flex;
+}
