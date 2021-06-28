@@ -76,4 +76,9 @@ describe('AppComponent', () => {
         component.ngOnDestroy();
         expect(postMessageServiceSpy.ngOnDestroy).toHaveBeenCalled();
     });
+	
+	it('should call onDestroy of onDestroy of component called', () => {
+        component.ngOnDestroy();
+        expect(postMessageServiceSpy.ngOnDestroy).toHaveBeenCalled();
+    });
 });
