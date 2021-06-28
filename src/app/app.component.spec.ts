@@ -72,7 +72,7 @@ describe('AppComponent', () => {
         });
     }));
     
-    it('should call onDestroy of PostMessage Service when onDestroy of component called', () => {
+    it('should call onDestroy of PostMessage when onDestroy of component called', () => {
         component.ngOnDestroy();
         expect(postMessageServiceSpy.ngOnDestroy).toHaveBeenCalled();
     });
